@@ -1,0 +1,1 @@
+-- Demo accounts (john@john.com / 123, admin@admin.com / 111) as bcrypt hashes.

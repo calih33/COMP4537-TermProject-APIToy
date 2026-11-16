@@ -1,0 +1,1 @@
+// Sends JSON error responses.
