@@ -15,7 +15,6 @@ The client and the API server are hosted on two different origins.
 
 ## Running it
 
-Each folder has its own README with setup steps. Copy `.env.example` to `.env` and fill it in. Never commit `.env`.
 
 ## Demo accounts
 
