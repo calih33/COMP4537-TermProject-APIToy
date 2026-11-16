@@ -10,7 +10,6 @@ We're building a Web API that lets a video game control a physical toy blaster. 
 | --- | --- |
 | `backend/` | API server (Node.js + Express, MySQL) |
 | `frontend/` | Client app (React + TypeScript) |
-| `docs/` | Architecture diagram and milestone report |
 
 The client and the API server are hosted on two different origins.
 
