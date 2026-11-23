@@ -22,7 +22,7 @@ export const config = {
   jwtExpiresIn: '1h',
 
   aiApiKey: process.env.AI_API_KEY,
-  aiModel: process.env.AI_MODEL ?? 'typesafe/jev-1.14',
+  aiModel: process.env.AI_MODEL ?? 'jev-latest',
   maxFireSeconds: Number(process.env.MAX_FIRE_SECONDS ?? 2),
 };
 

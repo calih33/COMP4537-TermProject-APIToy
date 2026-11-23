@@ -1,8 +1,9 @@
-// class AiDecisionService: asks Jev (System One API) how long the blaster should fire for a hit.
+// class AiDecisionService: asks Jev (TypeSafe's System One API) how long the blaster should fire for a hit.
+// Docs: https://docs.typesafe.ai/primitives/choice
 import { config } from '../config/env.js';
 import { messages } from '../lang/en/messages.js';
 
-const JEV_URL = 'https://thejevai.com/v1/systemone';
+const JEV_URL = 'https://api.typesafe.ai/v1/systemone';
 const REQUEST_TIMEOUT_MS = 10_000;
 
 // Each option's name is the firing time in seconds. Jev reads the descriptions and picks one.
@@ -60,11 +61,13 @@ export class AiDecisionService {
     });
 
     const body = await response.json().catch(() => null);
-    if (!response.ok || body?.code !== 0) {
-      throw new Error(`Jev responded ${response.status}: ${body?.message ?? 'no body'}`);
+    if (!response.ok) {
+      const detail = body?.error?.message ?? body?.error ?? body?.message ?? 'no body';
+      throw new Error(`Jev responded ${response.status}: ${typeof detail === 'string' ? detail : JSON.stringify(detail)}`);
     }
 
-    const answer = body.data?.result?.answers?.fire_duration;
+    // Response: { model, answers: { fire_duration: { type: 'choice', choice, probabilities, confidence } }, usage }
+    const answer = body?.answers?.fire_duration;
     if (!Object.hasOwn(FIRE_DURATION_OPTIONS, answer?.choice ?? '')) {
       throw new Error(`Jev returned an unknown choice: ${answer?.choice}`);
     }

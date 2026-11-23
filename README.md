@@ -2,7 +2,7 @@
 
 Health-Reactive Toy Blaster API. Team PrjS3: Justice, Isaac, Cali.
 
-We're building a Web API that lets a video game control a physical toy blaster. When the player loses health, an AI model (Jev's System One API, `typesafe/jev-1.14`) decides how many seconds the gel blaster should fire, the server checks that decision against safety limits, and a Raspberry Pi turns the blaster to face the player and fires.
+We're building a Web API that lets a video game control a physical toy blaster. When the player loses health, an AI model (Jev, TypeSafe's System One API, model `jev-latest`) decides how many seconds the gel blaster should fire, the server checks that decision against safety limits, and a Raspberry Pi turns the blaster to face the player and fires.
 
 ## What's in here
 

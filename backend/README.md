@@ -1,7 +1,7 @@
 # Backend (API server)
 
 Node.js + Express 5 API with MySQL. Auth uses bcrypt-hashed passwords and a JWT in an HttpOnly cookie.
-The AI decision comes from Jev's System One API (`typesafe/jev-1.14`).
+The AI decision comes from Jev, TypeSafe's System One API (`https://api.typesafe.ai`, model `jev-latest`).
 
 ## Setup
 
@@ -12,7 +12,7 @@ The AI decision comes from Jev's System One API (`typesafe/jev-1.14`).
    mysql -u <user> -p toy_blaster < db/schema.sql
    mysql -u <user> -p toy_blaster < db/seed.sql
    ```
-3. Copy `.env.example` to `.env` and fill it in (DB credentials, a long random `JWT_SECRET`, the Jev `AI_API_KEY`).
+3. Copy `.env.example` to `.env` and fill it in (DB credentials, a long random `JWT_SECRET`, the Jev `AI_API_KEY` from https://console.typesafe.ai/keys).
 4. Start the server: `npm run dev` (restarts on changes) or `npm start`.
 5. Optional: check the Jev key with `node scripts/tryJev.js` (uses 4 credits).
 
