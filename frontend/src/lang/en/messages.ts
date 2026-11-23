@@ -19,7 +19,7 @@ export const messages = {
             `You have made ${count} API ${count === 1 ? 'request' : 'requests'}.`,
         demoHeading: 'Try a health event',
         demoIntro:
-            'Enter the player\'s health before and after a hit. The AI decides how many shots to fire, and the server checks that number against the safety limits.',
+            'Enter the player\'s health before and after a hit. The AI decides how long the blaster fires, and the server checks that time against the safety limits.',
         previousHealthLabel: 'Health before (0-100)',
         currentHealthLabel: 'Health after (0-100)',
         submit: 'Send health event',
@@ -27,9 +27,32 @@ export const messages = {
         invalidHealth:
             'Use whole numbers from 0 to 100. Health after can\'t be higher than health before.',
         healthLost: 'Health lost',
-        aiShots: 'Shots the AI chose',
-        approvedShots: 'Shots approved by the safety check',
-        reason: 'AI reasoning',
+        suggestedSeconds: 'Firing time chosen',
+        approvedSeconds: 'Firing time approved by the safety check',
+        seconds: (value: number) => `${value} ${value === 1 ? 'second' : 'seconds'}`,
+        decidedBy: 'Decided by',
+        decidedByAi: 'Jev AI',
+        decidedByFormula: 'Backup formula (AI unavailable)',
+        reason: 'Reasoning',
+    },
+
+    auth: {
+        emailLabel: 'Email',
+        passwordLabel: 'Password',
+        confirmPasswordLabel: 'Confirm password',
+        passwordsDontMatch: 'The passwords don\'t match.',
+
+        loginHeading: 'Log in',
+        loginButton: 'Log in',
+        loggingIn: 'Logging in…',
+        noAccount: 'Don\'t have an account?',
+        registerLink: 'Register',
+
+        registerHeading: 'Create an account',
+        registerButton: 'Create account',
+        registering: 'Creating account…',
+        haveAccount: 'Already have an account?',
+        loginLink: 'Log in',
     },
 
     admin: {

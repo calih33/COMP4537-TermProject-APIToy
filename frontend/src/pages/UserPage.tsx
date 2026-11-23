@@ -105,10 +105,12 @@ export default function UserPage() {
                     <dl className="result">
                         <dt>{text.healthLost}</dt>
                         <dd>{result.healthLost}</dd>
-                        <dt>{text.aiShots}</dt>
-                        <dd>{result.aiShots}</dd>
-                        <dt>{text.approvedShots}</dt>
-                        <dd>{result.approvedShots}</dd>
+                        <dt>{text.suggestedSeconds}</dt>
+                        <dd>{text.seconds(result.suggestedSeconds)}</dd>
+                        <dt>{text.approvedSeconds}</dt>
+                        <dd>{text.seconds(result.approvedSeconds)}</dd>
+                        <dt>{text.decidedBy}</dt>
+                        <dd>{result.decidedBy === 'ai' ? text.decidedByAi : text.decidedByFormula}</dd>
                         <dt>{text.reason}</dt>
                         <dd>{result.reason}</dd>
                     </dl>

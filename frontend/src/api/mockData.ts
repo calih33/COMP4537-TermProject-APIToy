@@ -6,6 +6,8 @@ const fakeUser = { id: 1, email: 'admin@admin.com', role: 'admin', totalRequests
 
 export function mockResponse(path: string): unknown {
   switch (path) {
+    case '/api/v1/auth/login':
+    case '/api/v1/auth/register':
     case '/api/v1/users/me':
       return { user: fakeUser };
     case '/api/v1/health-events':
@@ -13,9 +15,10 @@ export function mockResponse(path: string): unknown {
         event: {
           id: 1,
           healthLost: 30,
-          aiShots: 4,
-          approvedShots: 3,
-          reason: 'Large hit, so a strong response. Capped at 3 by the safety limit.',
+          suggestedSeconds: 1.5,
+          approvedSeconds: 1,
+          decidedBy: 'ai',
+          reason: 'Jev chose 1.5 s for this hit (82% confident). Capped at 1 s by the safety limit.',
         },
       };
     case '/api/v1/admin/users':

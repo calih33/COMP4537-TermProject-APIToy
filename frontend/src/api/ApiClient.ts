@@ -16,8 +16,9 @@ export interface CurrentUser {
 export interface HealthEventResult {
     id: number;
     healthLost: number;
-    aiShots: number;
-    approvedShots: number;
+    suggestedSeconds: number; // how long the AI wants to fire
+    approvedSeconds: number;  // after the safety check caps it
+    decidedBy: 'ai' | 'formula';
     reason: string;
 }
 
