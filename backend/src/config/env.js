@@ -24,6 +24,8 @@ export const config = {
   aiApiKey: process.env.AI_API_KEY,
   aiModel: process.env.AI_MODEL ?? 'jev-latest',
   maxFireSeconds: Number(process.env.MAX_FIRE_SECONDS ?? 2),
+  turretUrl: process.env.TURRET_URL ?? 'http://127.0.0.1:5000',
+  turretTimeoutMs: Number(process.env.TURRET_TIMEOUT_MS ?? 10000),
 };
 
 if (!config.jwtSecret) {

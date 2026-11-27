@@ -10,6 +10,7 @@ We're building a Web API that lets a video game control a physical toy blaster. 
 | --- | --- |
 | `backend/` | API server (Node.js + Express, MySQL) |
 | `frontend/` | Client app (React + TypeScript) |
+| `hardware/` | Raspberry Pi turret service (Python + Flask) |
 
 The client and the API server are hosted on two different origins.
 
@@ -17,7 +18,8 @@ The client and the API server are hosted on two different origins.
 
 1. Set up and start the API server: see [backend/README.md](backend/README.md).
 2. Set up and start the client: see [frontend/README.md](frontend/README.md).
-3. Open http://localhost:5173 and log in with a demo account below.
+3. Set up the turret service: see [hardware/README.md](hardware/README.md). Start in simulation mode before connecting real hardware.
+4. Open http://localhost:5173 and log in with a demo account below.
 
 ## Demo accounts
 

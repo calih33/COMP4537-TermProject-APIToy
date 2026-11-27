@@ -1,0 +1,4 @@
+flask
+adafruit-circuitpython-motorkit
+gpiozero
+pigpio

@@ -35,5 +35,26 @@ Set the same variables in the host's environment settings, plus:
 | POST | `/api/v1/health-events` | user | `{ previousHealth, currentHealth, maxHealth? }`, Jev picks a firing time, the safety check caps it |
 | GET | `/api/v1/admin/users` | admin | All users with request counts |
 | GET | `/api/v1/admin/stats` | admin | Request counts per endpoint |
+| GET | `/api/v1/devices/turret/status` | user | Turret status |
+| GET | `/api/v1/devices/turret/log` | user | Turret event log |
+| POST | `/api/v1/devices/turret/pan/to` | user | `{ deg }`, move to an absolute angle |
+| POST | `/api/v1/devices/turret/pan/by` | user | `{ deg }`, move by a relative angle |
+| POST | `/api/v1/devices/turret/pan/center` | user | Move to center |
+| POST | `/api/v1/devices/turret/pan/stop` | user | Stop pan movement |
+| POST | `/api/v1/devices/turret/pan/zero` | user | Set the current position as zero |
+| POST | `/api/v1/devices/turret/pan/release` | user | Release the pan motor |
+| POST | `/api/v1/devices/turret/arm` | user | Arm the turret |
+| POST | `/api/v1/devices/turret/disarm` | user | Disarm the turret |
+| POST | `/api/v1/devices/turret/estop` | user | Stop and disarm the turret |
+| POST | `/api/v1/devices/turret/fire` | user | `{ ms? }`, fire for the requested duration (hardware safety limits apply) |
+| POST | `/api/v1/devices/turret/servo/angle` | user | `{ angle }`, set the servo angle (requires arming) |
+| POST | `/api/v1/devices/turret/servo/rest` | user | Return the servo to its resting position |
 
 Admin routes are protected on the server by `middleware/requireAdmin.js`.
+All device routes require the authenticated user's `token` cookie. They proxy the
+hardware service's JSON responses and errors; the Python turret service must be
+running separately. Configure its base URL with `TURRET_URL` (default
+`http://127.0.0.1:5000`) and the gateway request timeout with `TURRET_TIMEOUT_MS`
+(default `10000`). Upstream client errors retain their status, upstream 5xx
+responses become `502`, unavailable service responses become `503`, and gateway
+timeouts become `504`.
