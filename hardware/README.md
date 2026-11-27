@@ -80,6 +80,35 @@ By default this runs the real hardware drivers and listens only on
 the service bind address and the backend's `TURRET_URL` for the private
 network, and restrict inbound access to the backend host.
 
+## Hardware Setup
+
+You only need to setup the hardware once.
+
+<ol>
+  <li>
+    Run all .py files in the models folder
+  </li>
+  <li>
+    3D print all models with PETG or PLA at around 30% infill, with 4 walls on the base.
+  </li>
+  <li>
+    Attach all 3D printed parts together
+  </li>
+  <li>
+    Attach hardware to the 3D printed parts
+  </li>
+  <li>
+    Wire all hardware according to this diagram:
+    <img src="./images/diagram.png" alt="Wiring diagram">
+  </li>
+</ol>
+
+It should look like this in the end:
+
+!!REPLACE THIS IMAGE WITH THE FINAL PRODUCT!!
+
+![Final product](./images/)
+
 ## Configuration
 
 These are the environment variables read by `turret.config.Config.from_env`:
