@@ -2,3 +2,6 @@ flask
 adafruit-circuitpython-motorkit
 gpiozero
 pigpio
+numpy
+trimesh
+manifold3d
